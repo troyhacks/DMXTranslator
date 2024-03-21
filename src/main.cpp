@@ -70,10 +70,12 @@ void loop() {
     unsigned long now = millis();
 
     if (!packet.err) {
-      /* If this is the first DMX data we've received, lets log it! */
+
       if (!dmxIsConnected) {
+
         Serial.println("DMX is connected!");
         dmxIsConnected = true;
+        
       }
 
       dmx_read(dmxPort1, data, packet.size);
